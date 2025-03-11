@@ -36,14 +36,14 @@ const MainTitle = memo(() => (
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Fullstack
+          Data
         </span>
       </span>
       <br />
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Developer
+          Scientist
         </span>
       </span>
     </h1>
@@ -94,8 +94,8 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["MSc Physics Student", "Tech Enthusiast"];
-const TECH_STACK = ["Angular", "Django", "Python", "JavaScript", "HTML", "CSS"];
+const WORDS = ["Fullstack Developer", "Tech Enthusiast"];
+const TECH_STACK = ["Python", "Django", "Angular","JavaScript", "HTML", "CSS", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/MidhunThomas45" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/midhun997/" },

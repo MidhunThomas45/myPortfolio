@@ -41,7 +41,7 @@ const socialLinks = [
     displayName: "Github",
     subText: "@Midhunthomas45",
     icon: Github,
-    // url: "",
+    url: "https://github.com/MidhunThomas45",
     color: "#ffffff",
     gradient: "from-[#333] to-[#24292e]"
   },
@@ -61,7 +61,7 @@ const socialLinks = [
     </g>
 </svg>
     ),
-    url: "https://tiktok.com/",
+    // url: "",
     color: "black",
     gradient: "from-[#000000] via-[#25F4EE] to-[#FE2C55]"
   }

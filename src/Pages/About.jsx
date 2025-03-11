@@ -235,12 +235,15 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I am a software developer with expertise in Python, Django, and Angular. I have experience in Full Stack Python Development, working with databases like Oracle, PostgreSQL, and MySQL. I enjoy learning new technologies, solving challenges, and building innovative solutions while contributing to a team.
-            </p>
+ Data Science professional with an MSc in Physics and a certification in Data Science & AI from Faith
+ Infotech. Proficient in Python, machine learning, NLP, and deep learning, with expertise in data visualization using Power
+ BI, Tableau, and Advanced Excel. Experienced in deploying scalable ML models using Django REST Framework and
+ AWS.Passionate about leveraging data-driven insights to solve complex real-world challenges and eager to contribute to
+ innovative, growth-oriented teams.            </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1bEoYREh-QVwLPNgBs391N3orMTSYqObb/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1EJ7HQsaWVjcWKzgAtR-tOW1gcUVhy5tS/view?usp=sharing"
                 className="w-full lg:w-auto"
               >
                 <button
