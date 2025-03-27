@@ -235,15 +235,15 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
- Data Science professional with an MSc in Physics and a certification in Data Science & AI from Faith
- Infotech. Proficient in Python, machine learning, NLP, and deep learning, with expertise in data visualization using Power
- BI, Tableau, and Advanced Excel. Experienced in deploying scalable ML models using Django REST Framework and
- AWS.Passionate about leveraging data-driven insights to solve complex real-world challenges and eager to contribute to
- innovative, growth-oriented teams.            </p>
+  I am a Data Science professional with a certification in Data Science & AI. I have a strong background in Python,
+ machine learning, NLP, Generative AI, and deep learning, with expertise in data visualization using Power BI, Tableau,
+ and Advanced Excel. My experience includes developing scalable machine learning models and deploying them using
+ Django REST Framework and AWS. I am passionate about leveraging data-driven insights to solve complex problems
+ and contribute to innovative, growth-oriented teams.           </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1EJ7HQsaWVjcWKzgAtR-tOW1gcUVhy5tS/view?usp=sharing"
+                href="https://drive.google.com/file/d/1EzqloeHrvLQ_vqqcY2_tT7-tGAWzKUlu/view?usp=drive_link"
                 className="w-full lg:w-auto"
               >
                 <button
