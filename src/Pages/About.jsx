@@ -53,7 +53,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
 
           <img
-  src="midh.png"
+  src="dist/midhunthomas.png"
   alt="Profile"
   className="w-[110%] h-[110%] object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
   loading="lazy"
@@ -235,11 +235,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-  I am a Data Science professional with a certification in Data Science & AI. I have a strong background in Python,
- machine learning, NLP, Generative AI, and deep learning, with expertise in data visualization using Power BI, Tableau,
- and Advanced Excel. My experience includes developing scalable machine learning models and deploying them using
- Django REST Framework and AWS. I am passionate about leveraging data-driven insights to solve complex problems
- and contribute to innovative, growth-oriented teams.           </p>
+  Data and AI Engineer with expertise in Machine Learning, Deep Learning, Generative AI and Natural Language
+ Processing (NLP). Skilled in developing AI-powered applications for predictive analytics, automation, and intelligent
+ decision-making. Proficient in Python, SQL, and cloud technologies, with hands-on experience in end-to-end model
+ development, deployment, and optimization. Passionate about leveraging data-driven solutions to solve complex real
+world problems.           </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
