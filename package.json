@@ -12,6 +12,15 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "overrides": {
+    "react-event-listener": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-swipeable-views": {
+      "react": "$react"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
