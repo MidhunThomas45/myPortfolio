@@ -148,13 +148,78 @@ export default function FullWidthTabs() {
         TechStack: doc.data().TechStack || [],
       }));
 
-      const certificateData = certificateSnapshot.docs.map((doc) => doc.data());
+      const baseUrl = import.meta.env.BASE_URL || "/";
 
-      setProjects(projectData);
+      const hardcodedProjects = [
+        {
+          id: "hc-loan-eligibility",
+          Title: "Loan Eligibility Prediction System",
+          Description: "99.5% Accuracy. Engineered end-to-end ML pipeline with feature engineering, SMOTE oversampling, and GridSearchCV for loan approval prediction.",
+          Img: baseUrl + "loan_eligibility_ai.png",
+          TechStack: ["Scikit-learn", "XGBoost", "FastAPI", "Docker", "PostgreSQL"],
+          Features: [
+            "Engineered end-to-end ML pipeline with feature engineering, SMOTE oversampling, and GridSearchCV for loan approval prediction",
+            "Deployed RESTful API using FastAPI with Docker containerization enabling real-time predictions for 1000+ daily requests"
+          ],
+          Link: ""
+        },
+        {
+          id: "hc-rag-chatbot",
+          Title: "RAG-based Generative AI Chatbot",
+          Description: "Implemented Retrieval-Augmented Generation (RAG) system combining BERT embeddings with vector database for context-aware responses.",
+          Img: baseUrl + "rag_chatbot_ai.png",
+          TechStack: ["TensorFlow", "LangChain", "Pinecone", "BERT", "Python"],
+          Features: [
+            "Implemented Retrieval-Augmented Generation (RAG) system combining BERT embeddings with vector database for context-aware responses",
+            "Developed GANs for synthetic data generation and VAEs for image reconstruction achieving 95%+ quality scores"
+          ],
+          Link: ""
+        },
+        {
+          id: "hc-face-recognition",
+          Title: "Real-time Face Recognition System",
+          Description: "Built real-time face detection and recognition system with 95.2% accuracy using transfer learning on VGGFace2 dataset.",
+          Img: baseUrl + "face_recognition_ai.png",
+          TechStack: ["OpenCV", "TensorFlow", "CNN", "YOLO", "Python"],
+          Features: [
+            "Built real-time face detection and recognition system with 95.2% accuracy using transfer learning on VGGFace2 dataset",
+            "Optimized CNN architecture for edge deployment reducing inference time by 67% while maintaining accuracy"
+          ],
+          Link: ""
+        },
+        {
+          id: "hc-pcod-prediction",
+          Title: "PCOD Disease Prediction System",
+          Description: "Designed binary classification model for PCOD detection using 95+ clinical features achieving 92.8% accuracy.",
+          Img: baseUrl + "pcod_prediction_ai.png",
+          TechStack: ["Scikit-learn", "Random Forest", "Feature Engineering", "Python"],
+          Features: [
+            "Designed binary classification model for PCOD detection using 95+ clinical features achieving 92.8% accuracy",
+            "Applied SMOTE, PCA, and hyperparameter tuning improving F1-score by 15% over baseline models"
+          ],
+          Link: ""
+        },
+        {
+          id: "hc-bi-dashboard",
+          Title: "Business Intelligence Dashboard",
+          Description: "Developed interactive retail analytics dashboard tracking 50+ KPIs including sales trends, customer segmentation, and inventory optimization.",
+          Img: baseUrl + "bi_dashboard_ai.png",
+          TechStack: ["Power BI", "Python", "SQL", "ETL Pipelines"],
+          Features: [
+            "Developed interactive retail analytics dashboard tracking 50+ KPIs including sales trends, customer segmentation, and inventory optimization",
+            "Implemented ETL pipelines using Python and SQL enabling automated daily data refresh for 10M+ records"
+          ],
+          Link: ""
+        }
+      ];
+
+      const allProjects = [...projectData, ...hardcodedProjects];
+
+      setProjects(allProjects);
       setCertificates(certificateData);
 
       // Store in localStorage
-      localStorage.setItem("projects", JSON.stringify(projectData));
+      localStorage.setItem("projects", JSON.stringify(allProjects));
       localStorage.setItem("certificates", JSON.stringify(certificateData));
     } catch (error) {
       console.error("Error fetching data:", error);

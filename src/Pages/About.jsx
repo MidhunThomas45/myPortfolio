@@ -53,7 +53,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
 
           <img
-  src="Photo.png"
+  src="thomas.jpeg"
   alt="Profile"
   className="w-[110%] h-[110%] object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
   loading="lazy"
@@ -235,15 +235,14 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-  Data and AI Engineer with expertise in Machine Learning, Deep Learning, Generative AI and Natural Language
- Processing (NLP). Skilled in developing AI-powered applications for predictive analytics, automation, and intelligent
- decision-making. Proficient in Python, SQL, and cloud technologies, with hands-on experience in end-to-end model
- development, deployment, and optimization. Passionate about leveraging data-driven solutions to solve complex real
-world problems.           </p>
+              AI-ML Engineer with expertise in Machine Learning, Deep Learning, Agentic AI and Natural Language Processing (NLP). Skilled in developing AI-powered applications for predictive analytics, automation, and intelligent decision-making. Proficient in Python, SQL, and cloud technologies, with hands-on experience in end-to-end model development, deployment, and optimization. Passionate about leveraging data-driven solutions to solve complex real world problems.
+            </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1EzqloeHrvLQ_vqqcY2_tT7-tGAWzKUlu/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1q_wNx8zSx7rc54dpf32VUb566HwV_1cw/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full lg:w-auto"
               >
                 <button
