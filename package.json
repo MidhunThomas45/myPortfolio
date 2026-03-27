@@ -1,16 +1,14 @@
 {
   "name": "portofolio-v5",
   "private": true,
-  "homepage": "https://MidhunThomas45.github.io/myPortfolio/",
+  "homepage": "https://my-portfolio-alpha-blond-59.vercel.app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "overrides": {
   },
@@ -33,7 +31,6 @@
     "dialog": "^0.3.1",
     "firebase": "^11.0.1",
     "framer-motion": "^11.15.0",
-    "gh-pages": "^6.3.0",
     "gsap": "^3.12.5",
     "headlessui": "^0.0.0",
     "lucide-react": "^0.454.0",
