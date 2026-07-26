@@ -10,11 +10,11 @@ const experiences = [
     location: "Global IT Park, Japan · Remote",
     description: "Contributed to multiple high-impact projects including AIInterviewMate, IMarket Predict, and Masshou AutoDoc. Engineered full-stack architectures, and integrated advanced Machine Learning models, Computer Vision (PoseNet, FaceAPI), and Generative AI (Gemini) to drive intelligent automation and predictive analytics.",
     tools: [
-      "MERN", "MERN Stack", "Stripe Connect", "Python (FastAPI)", "React", "TypeScript", 
-      "Node.js", "Gemini", "Azure Text Analytics", "Azure Speech Service", 
-      "Azure Document Intelligence", "Azure Service Bus", "PoseNet", "FaceAPI", 
-      "Deep Learning", "Machine Learning", "Scikit-learn", "TensorFlow", "Keras", 
-      "NumPy", "Pandas", "Matplotlib", "Docker", "DevOps", "MLOps", "Stripe"
+      "Python (FastAPI)", "Machine Learning", "Deep Learning", "Gemini", 
+      "Scikit-learn", "TensorFlow", "Keras", "NumPy", "Pandas", "Matplotlib", 
+      "Azure Text Analytics", "Azure Speech Service", "Azure Document Intelligence", 
+      "Azure Service Bus", "PoseNet", "FaceAPI", "MLOps", "Docker", "DevOps", 
+      "React", "TypeScript", "Node.js", "MERN Stack", "Stripe Connect"
     ]
   },
   {
@@ -32,12 +32,12 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <div className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0" id="Experience">
+    <div className="h-auto pb-[10%] text-primaryText overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0" id="Experience">
       {/* Header */}
       <div className="text-center lg:mb-12 mb-6 px-[5%]">
         <div className="inline-block relative group">
           <h2
-            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
+            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c9a227] to-[#f2e8d8]"
             data-aos="zoom-in-up"
             data-aos-duration="600"
           >
@@ -45,7 +45,7 @@ const Experience = () => {
           </h2>
         </div>
         <p
-          className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
+          className="mt-2 text-secondaryText max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
           data-aos="zoom-in-up"
           data-aos-duration="800"
         >
@@ -57,24 +57,24 @@ const Experience = () => {
 
       <div className="w-full mx-auto relative space-y-8">
         {experiences.map((exp, index) => (
-          <div key={index} className="w-full bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/10 shadow-2xl relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+          <div key={index} className="w-full bg-card border border-card rounded-3xl p-6 sm:p-10 backdrop-blur-xl transition-all duration-500 hover:border-cardHover hover:bg-cardHover shadow-2xl relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
             
-            <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 to-[#a855f7]/10 opacity-50 z-0"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-[#f2e8d8]/10 opacity-50 z-0"></div>
 
             <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10">
               {/* Left side: Role & Company */}
               <div className="md:w-1/3 flex flex-col space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center shadow-lg">
-                    <Briefcase className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#c9a227] to-[#f2e8d8] flex items-center justify-center shadow-lg">
+                    <Briefcase className="w-6 h-6 text-primaryText" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white max-w-[200px] truncate sm:max-w-max">{exp.role}</h3>
-                    <p className="text-[#a855f7] font-semibold text-lg hover:text-[#6366f1] transition-colors cursor-pointer">{exp.company}</p>
+                    <h3 className="text-2xl font-bold text-primaryText max-w-[200px] truncate sm:max-w-max">{exp.role}</h3>
+                    <p className="text-[#f2e8d8] font-semibold text-lg hover:text-[#c9a227] transition-colors cursor-pointer">{exp.company}</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col space-y-2 text-gray-400 mt-2">
+                <div className="flex flex-col space-y-2 text-secondaryText mt-2">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-indigo-400" />
                     <span className="text-sm font-medium">{exp.duration}</span>
@@ -92,20 +92,20 @@ const Experience = () => {
 
               {/* Right side: Description & Tools */}
               <div className="md:w-2/3 flex flex-col space-y-6">
-                <p className="text-gray-300 text-base sm:text-lg leading-relaxed text-justify">
+                <p className="text-secondaryText text-base sm:text-lg leading-relaxed text-justify">
                   {exp.description}
                 </p>
                 
                 <div className="flex flex-col space-y-3">
-                  <div className="flex items-center gap-2 text-gray-200 font-semibold mb-2">
-                    <Code className="w-5 h-5 text-[#a855f7]" />
+                  <div className="flex items-center gap-2 text-primaryText font-semibold mb-2">
+                    <Code className="w-5 h-5 text-[#f2e8d8]" />
                     <h4>Tools & Technologies</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {exp.tools.map((tool, idx) => (
                       <span 
                         key={idx} 
-                        className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors shadow-sm"
+                        className="px-3 py-1 bg-card border border-card rounded-full text-xs sm:text-sm text-secondaryText hover:text-primaryText hover:bg-cardHover transition-colors shadow-sm"
                       >
                         {tool}
                       </span>

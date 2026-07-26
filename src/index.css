@@ -13,11 +13,33 @@
 	scrollbar-color: rgba(99, 102, 241, 0.3) rgba(12, 5, 53, 0.356);
 }
 
+:root {
+  --bg-color: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #4b5563; /* gray-600 */
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-hover: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  --bg-color: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af; /* gray-400 */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-hover: rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+}
+
 html,
 body {
 	overflow-x: hidden;
-	background: #030014;
+	background: var(--bg-color);
+	color: var(--text-primary);
 	scroll-behavior: smooth !important;
+	transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 @keyframes blob {

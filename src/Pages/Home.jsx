@@ -6,22 +6,29 @@ import {
   ExternalLink,
   Instagram,
   Sparkles,
+  Database,
+  Filter,
+  Brain,
+  LineChart,
+  Rocket,
 } from "lucide-react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { motion, AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import img1 from "../assets/ds_images/img1.png";
+import img2 from "../assets/ds_images/img2.png";
+import img3 from "../assets/ds_images/img3.png";
 
 // Memoized Components
 const StatusBadge = memo(() => (
   <div
     className="inline-block animate-float lg:mx-0"
-    data-aos="zoom-in"
-    data-aos-delay="400"
   >
     <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-      <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
-        <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+      <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-card">
+        <span className="bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
           <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
           Ready to Innovate
         </span>
@@ -31,19 +38,19 @@ const StatusBadge = memo(() => (
 ));
 
 const MainTitle = memo(() => (
-  <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
+  <div className="space-y-2">
     <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
       <span className="relative inline-block">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          AI-ML
+        <span className="absolute -inset-2 bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] blur-2xl opacity-20"></span>
+        <span className="relative text-primaryText">
+          Architecting
         </span>
       </span>
       <br />
       <span className="relative inline-block mt-2">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Engineer
+        <span className="absolute -inset-2 bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] blur-2xl opacity-20"></span>
+        <span className="relative bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] bg-clip-text text-transparent">
+          Intelligence
         </span>
       </span>
     </h1>
@@ -51,7 +58,7 @@ const MainTitle = memo(() => (
 ));
 
 const TechStack = memo(({ tech }) => (
-  <div className="px-4 py-2 hidden sm:block rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 hover:bg-white/10 transition-colors">
+  <div className="px-4 py-2 hidden sm:block rounded-full bg-card backdrop-blur-sm border border-card text-sm text-secondaryText hover:bg-cardHover transition-colors">
     {tech}
   </div>
 ));
@@ -60,14 +67,14 @@ const CTAButton = memo(({ href, text, icon: Icon }) => (
   <a href={href}>
     <button className="group relative w-[160px]">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#4f52c9] to-[#8644c5] rounded-xl opacity-50 blur-md group-hover:opacity-90 transition-all duration-700"></div>
-      <div className="relative h-11 bg-[#030014] backdrop-blur-xl rounded-lg border border-white/10 leading-none overflow-hidden">
+      <div className="relative h-11 bg-background backdrop-blur-xl rounded-lg border border-card leading-none overflow-hidden">
         <div className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 bg-gradient-to-r from-[#4f52c9]/20 to-[#8644c5]/20"></div>
         <span className="absolute inset-0 flex items-center justify-center gap-2 text-sm group-hover:gap-3 transition-all duration-300">
           <span className="bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent font-medium z-10">
             {text}
           </span>
           <Icon
-            className={`w-4 h-4 text-gray-200 ${
+            className={`w-4 h-4 text-primaryText ${
               text === "Contact"
                 ? "group-hover:translate-x-1"
                 : "group-hover:rotate-45"
@@ -82,9 +89,9 @@ const CTAButton = memo(({ href, text, icon: Icon }) => (
 const SocialLink = memo(({ icon: Icon, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer">
     <button className="group relative p-3">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
-      <div className="relative rounded-xl bg-black/50 backdrop-blur-xl p-2 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300">
-        <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
+      <div className="relative rounded-xl bg-black/50 backdrop-blur-xl p-2 flex items-center justify-center border border-card group-hover:border-cardHover transition-all duration-300">
+        <Icon className="w-5 h-5 text-secondaryText group-hover:text-primaryText transition-colors" />
       </div>
     </button>
   </a>
@@ -94,7 +101,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Fullstack Developer", "Tech Enthusiast"];
+const WORDS = ["Data Scientist", "AI-ML Engineer"];
 const TECH_STACK = ["Python", "Azure", "Machine Learning", "Deep Learning", "Agentic AI", "NLP", "SQL", "Cloud", "NumPy", "Pandas", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "MLOps", "Generative AI"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/MidhunThomas45" },
@@ -109,6 +116,17 @@ const Home = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  
+  // Image Cycling State
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [img1, img2, img3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   // Optimize AOS initialization
   useEffect(() => {
@@ -157,25 +175,9 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration
-  const lottieOptions = {
-    src: "https://assets5.lottiefiles.com/packages/lf20_qp1q7mct.json",
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-      progressiveLoad: true,
-    },
-    style: { width: "100%", height: "100%" },
-    className: `w-full h-full transition-all duration-500 ${
-      isHovering
-        ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
-        : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
-    }`,
-  };
 
   return (
-    <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
+    <div className="min-h-screen bg-background overflow-hidden" id="Home">
       <div
         className={`relative z-10 transition-all duration-1000 ${
           isLoaded ? "opacity-100" : "opacity-0"
@@ -184,73 +186,69 @@ const Home = () => {
         <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20">
             {/* Left Column */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full lg:w-1/2 space-y-6 sm:space-y-8 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
-              data-aos="fade-right"
-              data-aos-delay="200"
             >
               <div className="space-y-4 sm:space-y-6">
-                <StatusBadge />
-                <MainTitle />
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+                  <StatusBadge />
+                </motion.div>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}>
+                  <MainTitle />
+                </motion.div>
 
                 {/* Typing Effect */}
-                <div
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}
                   className="h-8 flex items-center"
-                  data-aos="fade-up"
-                  data-aos-delay="800"
                 >
-                  <span className="text-xl md:text-2xl bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent font-light">
+                  <span className="text-xl md:text-2xl text-secondaryText font-light">
                     {text}
                   </span>
-                  <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>
-                </div>
+                  <span className="w-[3px] h-6 bg-gradient-to-t from-[#c9a227] to-[#f2e8d8] ml-1 animate-blink"></span>
+                </motion.div>
 
                 {/* Description */}
-                <p
-                  className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
-                  data-aos="fade-up"
-                  data-aos-delay="1000"
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }}
+                  className="text-base md:text-lg text-secondaryText max-w-xl leading-relaxed font-light"
                 >
-                  I create innovative, functional, and user-friendly websites for digital solutions.
-                </p>
+                  I design intelligent systems, leveraging data and machine learning to build scalable AI solutions.
+                </motion.p>
 
                 {/* Tech Stack */}
-                <div
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}
                   className="flex flex-wrap gap-3 justify-start"
-                  data-aos="fade-up"
-                  data-aos-delay="1200"
                 >
                   {TECH_STACK.map((tech, index) => (
                     <TechStack key={index} tech={tech} />
                   ))}
-                </div>
+                </motion.div>
 
                 {/* CTA Buttons */}
-                <div
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.7 }}
                   className="flex flex-row gap-3 w-full justify-start"
-                  data-aos="fade-up"
-                  data-aos-delay="1400"
                 >
-                  <CTAButton
-                    href="#Portofolio"
-                    text="Projects"
-                    icon={ExternalLink}
-                  />
+                  <CTAButton href="#Portofolio" text="Projects" icon={ExternalLink} />
                   <CTAButton href="#Contact" text="Contact" icon={Mail} />
-                </div>
+                </motion.div>
 
                 {/* Social Links */}
-                <div
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }}
                   className="hidden sm:flex gap-4 justify-start"
-                  data-aos="fade-up"
-                  data-aos-delay="1600"
                 >
                   {SOCIAL_LINKS.map((social, index) => (
                     <SocialLink key={index} {...social} />
                   ))}
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column - Optimized Lottie Animation */}
             <div
@@ -260,32 +258,67 @@ const Home = () => {
               data-aos="fade-left"
               data-aos-delay="600"
             >
-              <div className="relative w-full opacity-90">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${
-                    isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
-                  }`}
-                ></div>
-
-                <div
-                  className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
-                    isHovering ? "scale-105" : "scale-100"
-                  }`}
-                >
-                  <DotLottieReact {...lottieOptions} />
+              <div className="relative w-full h-full flex justify-center items-center">
+                {/* Rotating Orbital Track */}
+                <motion.div 
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full border border-cardHover border-dashed opacity-50"
+                />
+              
+                {/* Orbital Elements (Icons) */}
+                {[Database, Brain, LineChart, Filter].map((Icon, index) => {
+                   const angle = (index * 90) * (Math.PI / 180);
+                   const radius = typeof window !== 'undefined' && window.innerWidth < 640 ? 150 : 200;
+                   const x = Math.cos(angle) * radius;
+                   const y = Math.sin(angle) * radius;
+                   return (
+                     <motion.div
+                       key={index}
+                       className="absolute w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-card backdrop-blur-xl border border-cardHover flex items-center justify-center shadow-[0_0_15px_rgba(201,162,39,0.2)] z-20"
+                       initial={{ x: 0, y: 0 }}
+                       animate={{ 
+                         x: [0, x, x],
+                         y: [0, y, y],
+                         rotate: [0, -360]
+                       }}
+                       transition={{ 
+                         x: { duration: 1.5, ease: "easeOut" },
+                         y: { duration: 1.5, ease: "easeOut" },
+                         rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                       }}
+                     >
+                       <Icon className="w-6 h-6 text-[#c9a227]" />
+                     </motion.div>
+                   );
+                })}
+              
+                {/* Central Image */}
+                <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-[#c9a227]/30 shadow-[0_0_40px_rgba(201,162,39,0.3)] z-10 flex items-center justify-center bg-card">
+                  <img
+                    key={currentImage}
+                    src={images[currentImage]}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    alt="Data Science Visualization"
+                  />
                 </div>
-
-                <div
-                  className={`absolute inset-0 pointer-events-none transition-all duration-700 ${
-                    isHovering ? "opacity-50" : "opacity-20"
-                  }`}
+                
+                {/* Floating Graph Element */}
+                <motion.div 
+                  animate={{ y: [0, -20, 0] }} 
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -right-4 sm:-right-8 bottom-1/4 w-32 h-24 bg-card backdrop-blur-xl border border-cardHover rounded-xl p-3 shadow-xl z-20 flex items-end gap-1"
                 >
-                  <div
-                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-3xl animate-[pulse_6s_cubic-bezier(0.4,0,0.6,1)_infinite] transition-all duration-700 ${
-                      isHovering ? "scale-110" : "scale-100"
-                    }`}
-                  ></div>
-                </div>
+                  {[40, 70, 45, 90, 65, 85].map((h, i) => (
+                    <motion.div 
+                      key={i} 
+                      className="w-full bg-gradient-to-t from-[#c9a227] to-[#f2e8d8] rounded-t-sm" 
+                      initial={{ height: 0 }} 
+                      animate={{ height: `${h}%` }} 
+                      transition={{ duration: 1.5, delay: i * 0.1, repeat: Infinity, repeatType: "reverse", repeatDelay: 3 }} 
+                    />
+                  ))}
+                </motion.div>
               </div>
             </div>
           </div>

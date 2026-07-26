@@ -16,7 +16,7 @@ const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
     <div className="inline-block relative group">
       <h2
-        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
+        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c9a227] to-[#f2e8d8]"
         data-aos="zoom-in-up"
         data-aos-duration="600"
       >
@@ -24,12 +24,12 @@ const Header = memo(() => (
       </h2>
     </div>
     <p
-      className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
+      className="mt-2 text-secondaryText max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
       data-aos="zoom-in-up"
       data-aos-duration="800"
     >
       <Sparkles className="w-5 h-5 text-purple-400" />
-      Transforming ideas into digital experiences
+      Transforming data into intelligent AI solutions
       <Sparkles className="w-5 h-5 text-purple-400" />
     </p>
   </div>
@@ -46,14 +46,14 @@ const ProfileImage = memo(() => (
       </div>
       <div className="relative">
         <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
-          <div className="absolute inset-0 border-4 border-white/20 rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
+          <div className="absolute inset-0 border-4 border-cardHover rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
 
           {/* Optimized overlay effects - disabled on mobile */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden sm:block" />
           <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
 
           <img
-  src="thomas.jpeg"
+  src={`${import.meta.env.BASE_URL}thomas.jpeg`}
   alt="Profile"
   className="w-[110%] h-[110%] object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
   loading="lazy"
@@ -63,7 +63,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 z-20 hidden sm:block">
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/10 to-transparent transform translate-y-full group-hover:-translate-y-full transition-transform duration-1000 delay-100" />
-            <div className="absolute inset-0 rounded-full border-8 border-white/10 scale-0 group-hover:scale-100 transition-transform duration-700 animate-pulse-slow" />
+            <div className="absolute inset-0 rounded-full border-8 border-card scale-0 group-hover:scale-100 transition-transform duration-700 animate-pulse-slow" />
           </div>
         </div>
       </div>
@@ -78,17 +78,17 @@ const StatCard = memo(
       data-aos-duration={1300}
       className="relative group"
     >
-      <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
+      <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-card overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
         <div
           className={`absolute -z-10 inset-0 bg-gradient-to-br ${color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
         ></div>
 
         <div className="flex items-center justify-between mb-4">
-          <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 transition-transform group-hover:rotate-6">
-            <Icon className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-full flex items-center justify-center bg-cardHover transition-transform group-hover:rotate-6">
+            <Icon className="w-8 h-8 text-primaryText" />
           </div>
           <span
-            className="text-4xl font-bold text-white"
+            className="text-4xl font-bold text-primaryText"
             data-aos="fade-up-left"
             data-aos-duration="1500"
             data-aos-anchor-placement="top-bottom"
@@ -99,7 +99,7 @@ const StatCard = memo(
 
         <div>
           <p
-            className="text-sm uppercase tracking-wider text-gray-300 mb-2"
+            className="text-sm uppercase tracking-wider text-secondaryText mb-2"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-anchor-placement="top-bottom"
@@ -108,14 +108,14 @@ const StatCard = memo(
           </p>
           <div className="flex items-center justify-between">
             <p
-              className="text-xs text-gray-400"
+              className="text-xs text-secondaryText"
               data-aos="fade-up"
               data-aos-duration="1000"
               data-aos-anchor-placement="top-bottom"
             >
               {description}
             </p>
-            <ArrowUpRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
+            <ArrowUpRight className="w-4 h-4 text-primaryText/50 group-hover:text-primaryText transition-colors" />
           </div>
         </div>
       </div>
@@ -177,15 +177,15 @@ const AboutPage = () => {
     () => [
       {
         icon: Code,
-        color: "from-[#6366f1] to-[#a855f7]",
+        color: "from-[#c9a227] to-[#f2e8d8]",
         value: totalProjects,
         label: "Total Projects",
-        description: "Innovative web solutions crafted",
+        description: "AI models & data pipelines built",
         animation: "fade-right",
       },
       {
         icon: Award,
-        color: "from-[#a855f7] to-[#6366f1]",
+        color: "from-[#f2e8d8] to-[#c9a227]",
         value: totalCertificates,
         label: "Certificates",
         description: "Professional skills validated",
@@ -193,7 +193,7 @@ const AboutPage = () => {
       },
       {
         icon: Globe,
-        color: "from-[#6366f1] to-[#a855f7]",
+        color: "from-[#c9a227] to-[#f2e8d8]",
         value: YearExperience,
         label: "Years of Experience",
         description: "Continuous learning journey",
@@ -205,7 +205,7 @@ const AboutPage = () => {
 
   return (
     <div
-      className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
+      className="h-auto pb-[10%] text-primaryText overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
       id="About"
     >
       <Header />
@@ -218,11 +218,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1000"
             >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c9a227] to-[#f2e8d8]">
                 Hello, I'm
               </span>
               <span
-                className="block mt-2 text-gray-200"
+                className="block mt-2 text-primaryText"
                 data-aos="fade-right"
                 data-aos-duration="1300"
               >
@@ -231,7 +231,7 @@ const AboutPage = () => {
             </h2>
 
             <p
-              className="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed text-justify pb-4 sm:pb-0"
+              className="text-base sm:text-lg lg:text-xl text-secondaryText leading-relaxed text-justify pb-4 sm:pb-0"
               data-aos="fade-right"
               data-aos-duration="1500"
             >
@@ -240,7 +240,7 @@ const AboutPage = () => {
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a
-                href="https://drive.google.com/file/d/1q_wNx8zSx7rc54dpf32VUb566HwV_1cw/view?usp=sharing"
+                href="https://drive.google.com/file/d/137nFrC2rhe09-iTs3haxynphz28OYGpA/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full lg:w-auto"
@@ -248,7 +248,7 @@ const AboutPage = () => {
                 <button
                   data-aos="fade-up"
                   data-aos-duration="800"
-                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#c9a227] to-[#f2e8d8] text-primaryText font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
                 >
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
                 </button>
@@ -257,7 +257,7 @@ const AboutPage = () => {
                 <button
                   data-aos="fade-up"
                   data-aos-duration="1000"
-                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10 animate-bounce-slow delay-200"
+                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#f2e8d8]/50 text-[#f2e8d8] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#f2e8d8]/10 animate-bounce-slow delay-200"
                 >
                   <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
                 </button>

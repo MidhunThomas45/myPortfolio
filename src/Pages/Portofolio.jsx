@@ -22,8 +22,8 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
     onClick={onClick}
     className="
       px-3 py-1.5
-      text-slate-300 
-      hover:text-white 
+      text-secondaryText 
+      hover:text-primaryText 
       text-sm 
       font-medium 
       transition-all 
@@ -32,12 +32,12 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
       flex 
       items-center 
       gap-2
-      bg-white/5 
-      hover:bg-white/10
+      bg-card 
+      hover:bg-cardHover
       rounded-md
       border 
-      border-white/10
-      hover:border-white/20
+      border-card
+      hover:border-cardHover
       backdrop-blur-sm
       group
       relative
@@ -142,11 +142,19 @@ export default function FullWidthTabs() {
         getDocs(certificateCollection),
       ]);
 
-      const projectData = projectSnapshot.docs.map((doc) => ({
+      const rawProjectData = projectSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
         TechStack: doc.data().TechStack || [],
       }));
+
+      // Filter out 'Library Management System' and 'Clinic Management System'
+      // to avoid duplicates and remove unwanted projects from Firebase data.
+      const projectData = rawProjectData.filter(
+        (project) =>
+          !project.Title.includes("Library Management System") &&
+          !project.Title.includes("Clinic Management System")
+      );
 
       const certificateData = certificateSnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -157,62 +165,184 @@ export default function FullWidthTabs() {
 
       const hardcodedProjects = [
         {
-          id: "hc-loan-eligibility",
+          id: "p1-interview-prep",
+          Title: "AI-Driven Interview Preparation & Career Platform",
+          Description: "Built the AI core of an interview platform supporting English and Japanese, using Gemini API for interview logic and Azure Speech for real-time voice interaction. Features include ATS resume scoring, resume rebuilding, and progress tracking.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["MERN", "FastAPI", "Gemini API", "Azure Speech", "ElevenLabs", "Azure"],
+          Features: [
+            "Built the AI core of an interview platform supporting English and Japanese",
+            "Used Gemini API for interview logic and Azure Speech for real-time voice interaction",
+            "Added ATS resume scoring, resume rebuilding, and progress tracking"
+          ],
+          Link: ""
+        },
+        {
+          id: "p2-ocr-translation",
+          Title: "Japanese Document OCR & Translation Microservice",
+          Description: "FastAPI microservice using Azure Document Intelligence to extract text from Japanese documents and Gemini API to translate it into English, utilizing Azure Service Bus for scalable processing.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["MERN", "FastAPI", "Azure Document Intelligence", "Gemini API", "Azure Service Bus"],
+          Features: [
+            "Built a FastAPI microservice using Azure Document Intelligence to extract text from Japanese documents",
+            "Used Gemini API to translate text into English",
+            "Used Azure Service Bus for scalable processing, integrated with a MERN front end"
+          ],
+          Link: ""
+        },
+        {
+          id: "p3-stock-prediction",
+          Title: "Stock Market Prediction System (TSE)",
+          Description: "LSTM model in TensorFlow to predict price trends for TSE-listed stocks using historical price data, deployed with FastAPI and visualized on a MERN dashboard.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["MERN", "FastAPI", "TensorFlow", "LSTM", "Docker"],
+          Features: [
+            "Built an LSTM model in TensorFlow to predict price trends for TSE-listed stocks",
+            "Set up separate FastAPI services for data pipelines and model training/inference",
+            "Displayed results on a MERN dashboard"
+          ],
+          Link: ""
+        },
+        {
+          id: "p4-job-matching",
+          Title: "AI-Powered Job Matching Platform",
+          Description: "AI matching engine using vector embeddings to match resumes with job postings. Includes a RAG pipeline for resume translation and job recommendations.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["MERN", "FastAPI", "RAG", "Vector Embeddings", "Gemini API"],
+          Features: [
+            "Built an AI matching engine using vector embeddings to match resumes with job postings",
+            "Used a RAG pipeline for resume translation and job recommendations",
+            "Implemented multilingual resume parsing"
+          ],
+          Link: ""
+        },
+        {
+          id: "p5-loan-eligibility",
           Title: "Loan Eligibility Prediction System",
-          Description: "99.5% Accuracy. Engineered end-to-end ML pipeline with feature engineering, SMOTE oversampling, and GridSearchCV for loan approval prediction.",
-          Img: baseUrl + "loan_eligibility_ai.png",
+          Description: "Engineered an end-to-end ML pipeline with feature engineering, SMOTE oversampling, and GridSearchCV for loan approval prediction, deployed as a RESTful API.",
+          Img: baseUrl + "default_project.png",
           TechStack: ["Scikit-learn", "XGBoost", "FastAPI", "Docker", "PostgreSQL"],
           Features: [
-            "Engineered end-to-end ML pipeline with feature engineering, SMOTE oversampling, and GridSearchCV for loan approval prediction",
-            "Deployed RESTful API using FastAPI with Docker containerization enabling real-time predictions for 1000+ daily requests"
+            "Engineered ML pipeline using CIBIL score, income, loan amount, and credit-history features",
+            "Trained and compared Logistic Regression, Random Forest, and XGBoost classifiers",
+            "Achieved 99.5% accuracy and deployed as FastAPI service for 1000+ daily requests"
           ],
           Link: ""
         },
         {
-          id: "hc-rag-chatbot",
-          Title: "RAG-based Generative AI Chatbot",
-          Description: "Implemented Retrieval-Augmented Generation (RAG) system combining BERT embeddings with vector database for context-aware responses.",
-          Img: baseUrl + "rag_chatbot_ai.png",
-          TechStack: ["TensorFlow", "LangChain", "Pinecone", "BERT", "Python"],
+          id: "p6-rag-chatbot",
+          Title: "RAG-based Enterprise Chatbot",
+          Description: "Built a company knowledge-base chatbot by chunking internal documents and embedding them using Sentence-Transformers, feeding context to Gemini API.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["ChromaDB", "Sentence-Transformers", "Gemini API", "Python"],
           Features: [
-            "Implemented Retrieval-Augmented Generation (RAG) system combining BERT embeddings with vector database for context-aware responses",
-            "Developed GANs for synthetic data generation and VAEs for image reconstruction achieving 95%+ quality scores"
+            "Chunked internal documents and embedded them using Sentence-Transformers",
+            "Stored vectors in ChromaDB and implemented Retrieval-Augmented Generation pipeline",
+            "Automated logging of every chat interaction to Excel for analytics"
           ],
           Link: ""
         },
         {
-          id: "hc-face-recognition",
-          Title: "Real-time Face Recognition System",
-          Description: "Built real-time face detection and recognition system with 95.2% accuracy using transfer learning on VGGFace2 dataset.",
-          Img: baseUrl + "face_recognition_ai.png",
-          TechStack: ["OpenCV", "TensorFlow", "CNN", "YOLO", "Python"],
+          id: "p7-telegram-bot",
+          Title: "Telegram Sales Assistant Bot (n8n Automation)",
+          Description: "End-to-end automation workflow connecting Telegram Bot API, Gemini API, and Excel/email nodes for customer support and order handling.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["n8n", "Gemini API", "Telegram Bot API", "Excel", "Email Automation"],
           Features: [
-            "Built real-time face detection and recognition system with 95.2% accuracy using transfer learning on VGGFace2 dataset",
-            "Optimized CNN architecture for edge deployment reducing inference time by 67% while maintaining accuracy"
+            "Designed automation workflow in n8n for a retail shoe shop's customer support",
+            "Used Gemini API to parse messages and answer product queries",
+            "Automated syncing of orders across Excel, email, and Telegram"
           ],
           Link: ""
         },
         {
-          id: "hc-pcod-prediction",
-          Title: "PCOD Disease Prediction System",
-          Description: "Designed binary classification model for PCOD detection using 95+ clinical features achieving 92.8% accuracy.",
-          Img: baseUrl + "pcod_prediction_ai.png",
-          TechStack: ["Scikit-learn", "Random Forest", "Feature Engineering", "Python"],
+          id: "p8-face-recognition",
+          Title: "Real-time Face Recognition & Liveness Detection",
+          Description: "Real-time face detection and recognition pipeline using MTCNN and CNN fine-tuned on VGGFace2, featuring liveness/anti-spoofing detection.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["OpenCV", "TensorFlow", "MTCNN", "CNN", "YOLO", "VGGFace2"],
           Features: [
-            "Designed binary classification model for PCOD detection using 95+ clinical features achieving 92.8% accuracy",
-            "Applied SMOTE, PCA, and hyperparameter tuning improving F1-score by 15% over baseline models"
+            "Built pipeline using MTCNN and transfer learning on VGGFace2 achieving 95.2% accuracy",
+            "Implemented liveness detection using texture and motion-based cues",
+            "Optimized CNN architecture for edge deployment reducing inference time by 67%"
           ],
           Link: ""
         },
         {
-          id: "hc-bi-dashboard",
+          id: "p9-sentiment-analysis",
+          Title: "Sentiment Analysis from Text",
+          Description: "Fine-tuned bert-base-uncased model on IMDB Movie Reviews dataset for binary sentiment classification.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["BERT", "Hugging Face Transformers", "IMDB Dataset"],
+          Features: [
+            "Fine-tuned bert-base-uncased model for binary sentiment classification",
+            "Tokenized text using BERT WordPiece tokenizer",
+            "Improved generalization through learning-rate warm-up and dropout tuning"
+          ],
+          Link: ""
+        },
+        {
+          id: "p10-emotion-recognition",
+          Title: "Real-time Emotion Recognition from Audio",
+          Description: "CNN-LSTM model trained on RAVDESS dataset for emotion classification, with real-time microphone audio-capture pipeline.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["Python", "Librosa", "CNN/LSTM", "Kaggle RAVDESS Dataset"],
+          Features: [
+            "Trained CNN-LSTM model extracting MFCC, chroma, and mel-spectrogram features",
+            "Classified 8 emotion classes using Categorical Cross-Entropy loss",
+            "Built real-time microphone audio-capture pipeline to predict emotion on the fly"
+          ],
+          Link: ""
+        },
+        {
+          id: "p11-image-classification",
+          Title: "Image Classification with PyTorch",
+          Description: "CNN image classifier in PyTorch fine-tuning a pretrained ResNet-18 backbone on the CIFAR-10 dataset.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["PyTorch", "CNN", "ResNet", "CIFAR-10"],
+          Features: [
+            "Built and trained CNN classifier fine-tuning pretrained ResNet-18",
+            "Applied data augmentation and learning-rate scheduler",
+            "Evaluated performance using accuracy and confusion matrix"
+          ],
+          Link: ""
+        },
+        {
+          id: "p12-mini-llm",
+          Title: "Mini Language Model with TensorFlow",
+          Description: "Transformer-based language model trained from scratch on the Tiny Shakespeare dataset for next-token prediction.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["TensorFlow", "Keras", "Transformers", "Tiny Shakespeare Dataset"],
+          Features: [
+            "Designed transformer model with custom tokenization and multi-head self-attention",
+            "Trained using next-token prediction objective",
+            "Generated coherent text continuations via greedy and temperature-based sampling"
+          ],
+          Link: ""
+        },
+        {
+          id: "p13-bi-dashboard",
           Title: "Business Intelligence Dashboard",
-          Description: "Developed interactive retail analytics dashboard tracking 50+ KPIs including sales trends, customer segmentation, and inventory optimization.",
-          Img: baseUrl + "bi_dashboard_ai.png",
+          Description: "Interactive retail analytics dashboard in Power BI tracking 50+ KPIs with Python/SQL ETL pipelines for automated daily refresh.",
+          Img: baseUrl + "default_project.png",
           TechStack: ["Power BI", "Python", "SQL", "ETL Pipelines"],
           Features: [
-            "Developed interactive retail analytics dashboard tracking 50+ KPIs including sales trends, customer segmentation, and inventory optimization",
-            "Implemented ETL pipelines using Python and SQL enabling automated daily data refresh for 10M+ records"
+            "Developed interactive analytics dashboard using DAX measures and Power Query",
+            "Built ETL pipelines to extract, clean, and load data",
+            "Enabled automated daily refresh for 10M+ records"
+          ],
+          Link: ""
+        },
+        {
+          id: "p14-clinic-management",
+          Title: "Full-Stack Clinic Management System",
+          Description: "Clinic management system handling patient records, appointments, and billing with a Django backend and Angular frontend.",
+          Img: baseUrl + "default_project.png",
+          TechStack: ["Django", "Angular", "MySQL", "Python"],
+          Features: [
+            "Built system handling patient records, appointments, and billing for 500+ users",
+            "Designed normalized MySQL schema",
+            "Implemented RESTful APIs with JWT authentication and role-based access control"
           ],
           Link: ""
         }
@@ -255,13 +385,13 @@ export default function FullWidthTabs() {
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
   return (
-    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
+    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-background overflow-hidden" id="Portofolio">
       {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
-        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#c9a227] to-[#f2e8d8]">
           <span style={{
-            color: '#6366f1',
-            backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)',
+            color: '#c9a227',
+            backgroundImage: 'linear-gradient(45deg, #c9a227 10%, #f2e8d8 93%)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
@@ -269,7 +399,7 @@ export default function FullWidthTabs() {
             Portfolio Showcase
           </span>
         </h2>
-        <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
+        <p className="text-secondaryText max-w-2xl mx-auto text-sm md:text-base mt-2">
           Explore my journey through projects, certifications, and technical expertise. 
           Each section represents a milestone in my continuous learning path.
         </p>
