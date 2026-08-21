@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Center: Copyright */}
           <p className="text-xs text-secondaryText text-center">
-            © {new Date().getFullYear()} {personalInfo.name}. Built with Next.js & Server-Side Rendering.
+            © {new Date().getFullYear()} {personalInfo.name}.
           </p>
 
           {/* Right: Scroll to top */}
