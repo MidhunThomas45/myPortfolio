@@ -27,7 +27,7 @@ export default function Footer() {
 
           {/* Center: Copyright */}
           <p className="text-xs text-secondaryText text-center">
-            © {new Date().getFullYear()} {personalInfo.name}.
+            © {new Date().getFullYear()} {personalInfo.name}.All rights reserved
           </p>
 
           {/* Right: Scroll to top */}
